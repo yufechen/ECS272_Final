@@ -67,6 +67,7 @@ interface HeroData {
   pickRank: number;
   banRank: number;
   attackType: string;
+  npcName: string;
 }
 
 interface HeroDetail {
@@ -89,7 +90,7 @@ export default {
       size: { width: 0, height: 0 },
       margin: { left: 50, right: 20, top: 60, bottom: 50 },
       tooltipVisible: false,
-      tooltipData: { hero_id: '', heroName: '', banRate: 0, metricValue: 0, pickRate: 0, winRate: 0, attackType: '', roles: [] },
+      tooltipData: { hero_id: '', heroName: '', banRate: 0, metricValue: 0, pickRate: 0, winRate: 0, attackType: '', roles: []},
       tooltipStyle: { left: '0px', top: '0px' },
       currentMetric: 'Pick Rate', // Initial metric
       roles: [] as string[], // Store roles for filtering
@@ -101,6 +102,7 @@ export default {
 
       // Hero detail vars
       heroesDetail: [] as HeroDetail[],   // Array to store HeroDetail
+      heroNPCData: {} as Record<string, string>, // Mapping ID to NPC names
       heroDetailData: { hero_id: '', heroName: '', variants: '', ability_rate: '', starting: '', early: '', mid: '', late: ''},
       herodetailVisible: false,
     };
@@ -111,6 +113,7 @@ export default {
       d3.csv('../../data/Constants/Constants.Heroes.csv').then((heroesData) => {
         heroesData.forEach((d: any) => {
           this.heroNames[d.id] = d.localized_name;
+          this.heroNPCData[d.id] = d.name;
 
           // Normalize and clean up roles
           const heroRoles = d.roles
@@ -134,6 +137,7 @@ export default {
             banRank: d['Ban Rank'],
             pickRank: d['Pick Rank'],
             attackType: d['attack_type'], // Added attackType field
+            npcName: this.heroNPCData[d.hero_id],
 
             // Normalize and clean up roles in the hero data
             roles: d.roles
@@ -236,41 +240,37 @@ export default {
         .style("font-size", "16px")  // Increased font size
         .text("Win Rate");
 
-      // Bind data to circles
-      const circles = svg.selectAll("circle")
+      // Bind data to miniImages
+      const miniImages = svg.selectAll("image")
         .data(this.sortedHeroes, (d) => d.hero_id);
 
-      // Enter new circles
-      circles.enter().append("circle")
-        .attr("cx", (d) => xScale(d.prevMetric || this.getMetricValue(d))) // Use previous value for smooth transition
-        .attr("cy", (d) => yScale(d.winRate))
-        .attr("r", 5)
-        .attr("fill", "teal")
+      // Enter new miniImages
+      miniImages.enter().append("image")
+        .attr("x", (d) => xScale(this.getMetricValue(d))) // Use previous value for smooth transition
+        .attr("y", (d) => yScale(d.winRate))
+        .attr("width", 20)  // Set image width (adjust as needed)
+        .attr("height", 20) // Set image height (adjust as needed)
+        .attr("href", (d) => '../../data/Images/Miniheroes/' + d.npcName.replace('npc_dota_hero_', '') + '.png')
         .style("opacity", 0.7)
         .on("mouseover", this.showTooltip)
         .on("mousemove", this.moveTooltip)
         .on("mouseout", this.hideTooltip)
         .on("click", this.changeCurrentHero)
         .transition().duration(1000)
-        .attr("cx", (d) => xScale(this.getMetricValue(d))) // Transition to new X position
+        .attr("x", (d) => xScale(this.getMetricValue(d))) // Transition to new X position
         .ease(d3.easeCubic);
 
-      // Update existing circles
-      circles.transition().duration(1000)
-        .attr("cx", (d) => xScale(this.getMetricValue(d)))
-        .attr("cy", (d) => yScale(d.winRate))
+      // Update existing images
+      miniImages.transition().duration(1000)
+        .attr("x", (d) => xScale(this.getMetricValue(d)))
+        .attr("y", (d) => yScale(d.winRate))
         .ease(d3.easeCubic);
 
       // Remove old circles
-      circles.exit()
+      miniImages.exit()
         .transition().duration(1000)
         .style("opacity", 0)
         .remove();
-
-      // Track previous metric for smoother transitions
-      this.sortedHeroes.forEach((d) => {
-        d.prevMetric = this.getMetricValue(d);
-      });
     },
 
     changeCurrentHero(event, d) {

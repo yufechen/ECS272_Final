@@ -84,6 +84,7 @@ export default {
   name: "ScatterPlot",
   data() {
     return {
+
       heroes: [] as HeroData[],
       sortedHeroes: [] as HeroData[],  // Array to store sorted heroes
       heroNames: {} as Record<string, string>, // Mapping hero_id to hero names
@@ -246,7 +247,7 @@ export default {
 
       // Enter new miniImages
       miniImages.enter().append("image")
-        .attr("x", (d) => xScale(this.getMetricValue(d))) // Use previous value for smooth transition
+        .attr("x", (d) => xScale(d.prevMetric || this.getMetricValue(d))) // Use previous value for smooth transition
         .attr("y", (d) => yScale(d.winRate))
         .attr("width", 20)  // Set image width (adjust as needed)
         .attr("height", 20) // Set image height (adjust as needed)
@@ -257,7 +258,8 @@ export default {
         .on("mouseout", this.hideTooltip)
         .on("click", this.changeCurrentHero)
         .transition().duration(1000)
-        .attr("x", (d) => xScale(this.getMetricValue(d))) // Transition to new X position
+        .attr("x", (d) => xScale(this.getMetricValue(d)))  // Transition to new X position
+        .attr("y", (d) => yScale(d.winRate))              // Transition to new Y position
         .ease(d3.easeCubic);
 
       // Update existing images
@@ -271,6 +273,10 @@ export default {
         .transition().duration(1000)
         .style("opacity", 0)
         .remove();
+
+      this.sortedHeroes.forEach((d) => {
+        d.prevMetric = this.getMetricValue(d);
+      });
     },
 
     changeCurrentHero(event, d) {
@@ -278,6 +284,7 @@ export default {
       currentHero.setCurrentHero(d.hero_id);
       //console.log(currentHero.chosenState);
     },
+
     showTooltip(event, d) {
       this.tooltipData = {
         hero_id: d.hero_id,
@@ -293,9 +300,11 @@ export default {
       this.tooltipVisible = true;
       this.moveTooltip(event);
     },
+
     getMetricValue(d) {
       return this.currentMetric === 'Pick Rate' ? d.pickRate : d.banRate;
     },
+    
     moveTooltip(event) {
       let tooltipLeft = event.pageX + 10;
       let tooltipTop = event.pageY + 10;
@@ -417,6 +426,7 @@ html, body, #app {
 .toggle-button:active {
   background-color: #e7eaec; /* Darker shade when pressed */
 }
+
 .chart-container {
   display: flex;
   justify-content: center;
@@ -455,15 +465,6 @@ html, body, #app {
   overflow-y: auto; /* allows scrolling */
   padding: 20px;
   box-sizing: border-box;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    color: #666;
   }
 
 </style>

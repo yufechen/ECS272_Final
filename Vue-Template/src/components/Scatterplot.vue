@@ -44,8 +44,12 @@
     <!-- Tooltip Element -->
     <div v-if="tooltipVisible" class="tooltip" :style="tooltipStyle">
       <strong>{{ tooltipData.heroName }}</strong><br />
-      {{ currentMetric }}: {{ tooltipData.metricValue }}%<br />
-      Win Rate: {{ tooltipData.winRate }}%
+      Win Rate: {{ tooltipData.winRate }}%<br />
+      Pick Rate: {{ tooltipData.pickRate }}%<br />
+      Ban Rate: {{ tooltipData.banRate }}%<br />
+      Attack Type: {{ tooltipData.attackType }}<br />
+      Role(s): {{ tooltipData.roles }}<br />
+      
     </div>
   </div>
 </template>
@@ -85,7 +89,7 @@ export default {
       size: { width: 0, height: 0 },
       margin: { left: 50, right: 20, top: 60, bottom: 50 },
       tooltipVisible: false,
-      tooltipData: { hero_id: '', heroName: '', metricValue: 0, winRate: 0 },
+      tooltipData: { hero_id: '', heroName: '', banRate: 0, metricValue: 0, pickRate: 0, winRate: 0, attackType: '', roles: [] },
       tooltipStyle: { left: '0px', top: '0px' },
       currentMetric: 'Pick Rate', // Initial metric
       roles: [] as string[], // Store roles for filtering
@@ -277,9 +281,14 @@ export default {
     showTooltip(event, d) {
       this.tooltipData = {
         hero_id: d.hero_id,
-        heroName: this.heroNames[d.hero_id] || "Unknown Hero",
-        metricValue: this.getMetricValue(d),
+        heroName: "Hero Name: " + this.heroNames[d.hero_id] || "Unknown Hero",
         winRate: d.winRate,
+        attackType: d.attackType,
+        banRate: d.banRate,
+        pickRate: d.pickRate,
+        roles: d.roles,
+        metricValue: this.getMetricValue(d),
+
       };
       this.tooltipVisible = true;
       this.moveTooltip(event);

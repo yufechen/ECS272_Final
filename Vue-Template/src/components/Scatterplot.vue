@@ -1,5 +1,21 @@
 <template>
-  <div class="scatterplot-wrapper">
+    <div class="scatterplot-wrapper">
+    <!-- Role Filter with Checkboxes -->
+    <div class="role-filter">
+      <label class="role-label">Select Roles:</label>
+      <div class="checkbox-container">
+        <div v-for="role in uniqueRoles" :key="role" class="checkbox-item">
+          <input
+            type="checkbox"
+            :value="role"
+            v-model="selectedRoles"
+            @change="filterByRoles"
+          />
+          <label>{{ role }}</label>
+        </div>
+      </div>
+    </div>
+    
     <!-- Button to toggle between Pick Rate and Ban Rate -->
     <button @click="toggleMetric" class="toggle-button">
       Toggle to {{ currentMetric === 'Pick Rate' ? 'Ban Rate' : 'Pick Rate' }}
@@ -52,6 +68,9 @@ export default {
       tooltipData: { hero_id: '', heroName: '', metricValue: 0, winRate: 0 },
       tooltipStyle: { left: '0px', top: '0px' },
       currentMetric: 'Pick Rate', // Initial metric
+      roles: [] as string[], // Store roles for filtering
+      selectedRoles: [] as string[], // Array of selected roles
+      uniqueRoles: [] as string[], // All unique roles
 
       // Hero detail vars
       heroesDetail: [] as HeroDetail[],   // Array to store HeroDetail
@@ -59,13 +78,24 @@ export default {
       herodetailVisible: false,
     };
   },
-  methods: {
+    methods: {
     loadData() {
       // Load the hero names
       d3.csv('../../data/Constants/Constants.Heroes.csv').then((heroesData) => {
         heroesData.forEach((d: any) => {
           this.heroNames[d.id] = d.localized_name;
+
+          // Normalize and clean up roles
+          const heroRoles = d.roles
+            .replace(/[\[\]"' ]/g, '') // Remove brackets, quotes, and spaces
+            .split(',') // Split into an array
+            .map((role) => role.trim()); // Trim spaces from each role
+
+          this.roles.push(...heroRoles); // Add cleaned roles to the roles array
         });
+
+        // Get unique roles
+        this.uniqueRoles = [...new Set(this.roles)];
 
         // Load hero pick/ban rates
         d3.csv('../../data/merged_hero_data.csv', d3.autoType).then((data) => {
@@ -74,11 +104,31 @@ export default {
             pickRate: d['Pick Rate'],
             banRate: d['Ban Rate'],
             winRate: d['Win Rate'],
+
+            // Normalize and clean up roles in the hero data
+            roles: d.roles
+              .replace(/[\[\]"' ]/g, '') // Remove brackets, quotes, and spaces
+              .split(',') // Split into an array
+              .map((role) => role.trim()), // Trim spaces from each role
           }));
-          this.sortedHeroes = [...this.heroes];  // Initialize sortedHeroes
+
+          this.sortedHeroes = [...this.heroes]; // Initialize sortedHeroes
           this.initChart();
-        });
       });
+    });
+  },
+    // Filter heroes by selected roles
+    filterByRoles() {
+      if (this.selectedRoles.length === 0) {
+        // Show all heroes if no roles are selected
+        this.sortedHeroes = [...this.heroes];
+      } else {
+        // Filter heroes to include only those that have all selected roles
+        this.sortedHeroes = this.heroes.filter((hero) =>
+          this.selectedRoles.every((role) => hero.roles.includes(role))
+        );
+      }
+      this.initChart(); // Re-render the chart after filtering
     },
     initChart() {
       // Clear previous chart
@@ -187,7 +237,7 @@ export default {
     changeCurrentHero(event, d) {
       const currentHero = useCurrentHero();
       currentHero.setCurrentHero(d.hero_id);
-      console.log(currentHero.chosenState);
+      //console.log(currentHero.chosenState);
     },
     showTooltip(event, d) {
       this.tooltipData = {
@@ -270,6 +320,36 @@ html, body, #app {
   position: relative;
 }
 
+.role-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.role-label {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-item input {
+  margin-right: 5px;
+}
+
 .toggle-button {
   margin-bottom: 10px;
   padding: 8px 16px;
@@ -278,6 +358,9 @@ html, body, #app {
 }
 
 .chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }

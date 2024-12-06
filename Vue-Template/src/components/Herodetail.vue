@@ -466,11 +466,12 @@
   }
   
   .scatterplot-wrapper {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    margin-left: 25px;
+    margin-left: 50px;
     height: 200vh;
     width: 100vw;
     position: relative;

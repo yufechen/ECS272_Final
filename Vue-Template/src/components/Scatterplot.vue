@@ -92,9 +92,9 @@ export default {
         .attr("x", this.size.width / 2)
         .attr("y", this.margin.top / 2)
         .attr("text-anchor", "middle")
-        .style("font-size", "16px")
+        .style("font-size", "20px")  // Increased font size
         .style("font-weight", "bold")
-        .text(`Hero ${this.currentMetric} vs Win Rate`);
+        .text(`Dota 2 Hero Win Rate vs ${this.currentMetric}`);
 
       // Calculate a shared max value for the X-axis across both metrics
       const maxMetricValue = d3.max(this.heroes, (d) => Math.max(d.pickRate, d.banRate))!;
@@ -119,6 +119,14 @@ export default {
             .call(xAxis)
         );
 
+      // Add x-axis label with increased font size
+      svg.append("text")
+        .attr("x", this.size.width / 2)
+        .attr("y", this.size.height - this.margin.bottom + 40)
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")  // Increased font size
+        .text(this.currentMetric === 'Pick Rate' ? 'Pick Rate' : 'Ban Rate');
+
       // Render Y Axis
       const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d}%`);
       svg.selectAll(".y-axis")
@@ -129,6 +137,15 @@ export default {
             .attr("transform", `translate(${this.margin.left}, 0)`)
             .call(yAxis)
         );
+
+      // Add y-axis label with increased font size and adjusted position
+      svg.append("text")
+        .attr("x", -this.size.height / 2 - 30) // Moved further to the left
+        .attr("y", this.margin.left - 30)
+        .attr("transform", "rotate(-90)")
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")  // Increased font size
+        .text("Win Rate");
 
       // Bind data to circles
       const circles = svg.selectAll("circle")
@@ -165,7 +182,6 @@ export default {
       this.sortedHeroes.forEach((d) => {
         d.prevMetric = this.getMetricValue(d);
       });
-
     },
 
     changeCurrentHero(event, d) {

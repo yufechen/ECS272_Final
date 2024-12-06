@@ -96,46 +96,78 @@ export default {
         .style("font-weight", "bold")
         .text(`Hero ${this.currentMetric} vs Win Rate`);
 
+      // Calculate a shared max value for the X-axis across both metrics
+      const maxMetricValue = d3.max(this.heroes, (d) => Math.max(d.pickRate, d.banRate))!;
+
+      // Create scales
       const xScale = d3.scaleLinear()
-        .domain([0, d3.max(this.sortedHeroes, (d) => this.getMetricValue(d))!])
+        .domain([0, maxMetricValue]) // Use shared max value
         .range([this.margin.left, this.size.width - this.margin.right]);
 
       const yScale = d3.scaleLinear()
-        .domain([0, d3.max(this.sortedHeroes, (d) => d.winRate)!])
+        .domain([0, d3.max(this.heroes, (d) => d.winRate)!])
         .range([this.size.height - this.margin.bottom, this.margin.top]);
 
-      svg.append("g")
-        .attr("transform", `translate(0, ${this.size.height - this.margin.bottom})`)
-        .call(d3.axisBottom(xScale).tickFormat((d) => `${d}%`));
+      // Render X Axis
+      const xAxis = d3.axisBottom(xScale).tickFormat((d) => `${d}%`);
+      svg.selectAll(".x-axis")
+        .data([null]) // Bind to a single element
+        .join(
+          enter => enter.append("g")
+            .attr("class", "x-axis")
+            .attr("transform", `translate(0, ${this.size.height - this.margin.bottom})`)
+            .call(xAxis)
+        );
 
-      svg.append("g")
-        .attr("transform", `translate(${this.margin.left}, 0)`)
-        .call(d3.axisLeft(yScale).tickFormat((d) => `${d}%`));
+      // Render Y Axis
+      const yAxis = d3.axisLeft(yScale).tickFormat((d) => `${d}%`);
+      svg.selectAll(".y-axis")
+        .data([null])
+        .join(
+          enter => enter.append("g")
+            .attr("class", "y-axis")
+            .attr("transform", `translate(${this.margin.left}, 0)`)
+            .call(yAxis)
+        );
 
-      // Create and update the circles for the scatter plot
+      // Bind data to circles
       const circles = svg.selectAll("circle")
-        .data(this.sortedHeroes);
+        .data(this.sortedHeroes, (d) => d.hero_id);
 
       // Enter new circles
       circles.enter().append("circle")
-        .attr("cx", (d) => xScale(this.getMetricValue(d)))
+        .attr("cx", (d) => xScale(d.prevMetric || this.getMetricValue(d))) // Use previous value for smooth transition
         .attr("cy", (d) => yScale(d.winRate))
         .attr("r", 5)
         .attr("fill", "teal")
+        .style("opacity", 0.7)
         .on("mouseover", this.showTooltip)
         .on("mousemove", this.moveTooltip)
         .on("mouseout", this.hideTooltip)
-        .on("click", this.changeCurrentHero);
+        .on("click", this.changeCurrentHero)
+        .transition().duration(1000)
+        .attr("cx", (d) => xScale(this.getMetricValue(d))) // Transition to new X position
+        .ease(d3.easeCubic);
 
       // Update existing circles
-      circles.transition()
-        .duration(1000)
+      circles.transition().duration(1000)
         .attr("cx", (d) => xScale(this.getMetricValue(d)))
-        .attr("cy", (d) => yScale(d.winRate));
+        .attr("cy", (d) => yScale(d.winRate))
+        .ease(d3.easeCubic);
 
-      // Remove old circles if any
-      circles.exit().remove();
+      // Remove old circles
+      circles.exit()
+        .transition().duration(1000)
+        .style("opacity", 0)
+        .remove();
+
+      // Track previous metric for smoother transitions
+      this.sortedHeroes.forEach((d) => {
+        d.prevMetric = this.getMetricValue(d);
+      });
+
     },
+
     changeCurrentHero(event, d) {
       const currentHero = useCurrentHero();
       currentHero.setCurrentHero(d.hero_id);
@@ -274,4 +306,5 @@ html, body, #app {
     font-size: 24px;
     color: #666;
   }
+
 </style>

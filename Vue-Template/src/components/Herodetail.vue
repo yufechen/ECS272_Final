@@ -177,28 +177,28 @@
         svg.append("text")
             .attr("x", 10)
             .attr("y", 200)
-            .text(`Strating`)
+            .text(`Starting`)
             .style("font-family", "Arial")
             .style("font-size", "20px");
   
         svg.append("text")
             .attr("x", 180)
             .attr("y", 200)
-            .text(`early`)
+            .text(`Early`)
             .style("font-family", "Arial")
             .style("font-size", "20px");
   
         svg.append("text")
             .attr("x", 350)
             .attr("y", 200)
-            .text(`mid`)
+            .text(`Mid`)
             .style("font-family", "Arial")
             .style("font-size", "20px");
   
         svg.append("text")
             .attr("x", 520)
             .attr("y", 200)
-            .text(`late`)
+            .text(`Late`)
             .style("font-family", "Arial")
             .style("font-size", "20px");
   

@@ -1,16 +1,12 @@
 <script lang="ts">
 
-import Notes from './components/Notes.vue'
-import NotesWithStore from './components/NotesWithStore.vue'
-import Example from './components/Example.vue'
 import Scatterplot from './components/Scatterplot.vue'
+import Herodetail from './components/Herodetail.vue'
 
 export default {
   components: {
-    Notes,
-    Example,
-    NotesWithStore,
-    Scatterplot
+    Scatterplot,
+    Herodetail,
   }
 }
 </script>
@@ -21,6 +17,11 @@ export default {
     <v-row no-gutters>
       <v-col cols="5">
         <Scatterplot />
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+      <v-col cols="5">
+        <Herodetail />
       </v-col>
     </v-row>
   </v-container>

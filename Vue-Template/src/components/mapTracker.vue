@@ -103,8 +103,8 @@
             const movements = [];
             Object.keys(hero).forEach(x => {
                 Object.keys(hero[x]).forEach(y => {
-                    var newX = (parseInt(x)+100) * 500 / 256;
-                    var newY = (parseInt(y)-1) * 500 / 256;
+                    var newX = parseInt(x) * 500 / 256;
+                    var newY = parseInt(y) * 500 / 256;
                     console.log('x', newX);
                     console.log('y', newY);
                     movements.push({x: +newX , y: +newY , time: hero[x][y]});
@@ -137,8 +137,8 @@
                         svg.append("circle")
                             .attr("r", 10)
                             .attr("fill", "yellow")
-                            .attr("cx", (item.x + 127)/256 * 500)
-                            .attr("cy", (item.y + 127)/256 * 500);
+                            .attr("cx", item.x/256 * 500)
+                            .attr("cy", item.y/256 * 500);
                     }
                 }
 
@@ -148,8 +148,8 @@
                         svg.append("circle")
                             .attr("r", 10)
                             .attr("fill", "blue")
-                            .attr("cx", (item.x + 127)/256 * 500)
-                            .attr("cy", (item.y + 127)/256 * 500);
+                            .attr("cx", item.x/256 * 500)
+                            .attr("cy", item.y/256 * 500);
                     }
                 }
 
@@ -163,7 +163,7 @@
                     .attr("stroke-width", 1)
                     .attr("d", line);
                 circle.transition()
-                    .duration(move.time * 1000)  // Convert time to milliseconds
+                    .duration(move.time * 10)  // Convert time to milliseconds
                     .attr("cx", move.x)     // Scale factor for display
                     .attr("cy", move.y)
                     .on("end", () => animateMovements(i + 1));

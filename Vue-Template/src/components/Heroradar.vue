@@ -54,8 +54,8 @@
                 ];
 
                 var cfg = {
-                w: 200,
-                h: 200,
+                w: 400,
+                h: 400,
                 margin: {top: 50, right: 80, bottom: 50, left: 80},
                 levels: 3,
                 labelFactor: 1.25,  // Adjust this factor to position labels further out

@@ -53,6 +53,7 @@
   
         // Hero detail vars
         heroesDetail: [] as HeroDetail[],   // Array to store HeroDetail
+        heroKeys: {} as Record<string, string>, // Mapping hero_id to hero names
         heroDetailData: { hero_id: '', heroName: '', variants: '', ability_rate: '', starting: '', early: '', mid: '', late: ''},
         herodetailVisible: true,
         currentHero,
@@ -64,6 +65,7 @@
         d3.csv('../../data/Constants/Constants.Heroes.csv').then((heroesData) => {
           heroesData.forEach((d: any) => {
             this.heroNames[d.id] = d.localized_name;
+            this.heroKeys[d.id] = d.name;
           });
   
           // Load hero pick/ban rates
@@ -124,13 +126,7 @@
         const mid = this.heroDetailData.mid ? JSON.parse(this.heroDetailData.mid) : {};
         const late = this.heroDetailData.late ? JSON.parse(this.heroDetailData.late) : {};
   
-        let heroKey = `npc_dota_hero_${this.heroDetailData.heroName.toLowerCase().replace(/\s+/g, '_')}`;
-        
-        if(this.heroDetailData.heroName == "Shadow Fiend") heroKey = 'npc_dota_hero_nevermore';
-        if(this.heroDetailData.heroName == "Clockwerk") heroKey = 'npc_dota_hero_rattletrap';
-        if(this.heroDetailData.heroName == "Anti-Mage") heroKey = 'npc_dota_hero_antimage';
-        if(this.heroDetailData.heroName == "Queen of Pain") heroKey = 'npc_dota_hero_queenofpain';
-        if(this.heroDetailData.heroName == "Underlord") heroKey = 'npc_dota_hero_abyssal_underlord';
+        let heroKey = this.heroKeys[this.currentHero.chosenState];
 
         d3.json('../../data/Constants/hero_abilities.json').then(data => {
           let variantX = 670;
@@ -167,17 +163,12 @@
              .style("font-weight", "bold")
              .style("font-size", "30px");
         
-        if (this.heroDetailData.heroName == "Queen of Pain") {
-            svg.append("image")
-            .attr("x", 670)
-            .attr("y", 0)
-            .attr("href", '../../data/Images/Heroes/queenofpain.png');
-        }else{
-            svg.append("image")
-            .attr("x", 670)
-            .attr("y", 0)
-            .attr("href", '../../data/Images/Heroes/' + this.heroDetailData.heroName.toLowerCase().replace(/ /g, "_").replace(/-/g, '') + '.png');
-        }
+        svg.append("image")
+        .attr("width", 256)
+        .attr("height", 144)
+        .attr("x", 670)
+        .attr("y", 0)
+        .attr("href", '../../data/Images/Heroes/' + heroKey.replace('npc_dota_hero_', '') + '.png');
         
   
         svg.append("text")

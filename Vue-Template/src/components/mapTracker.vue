@@ -83,8 +83,8 @@
             var obs = '';
             var sen = '';
 
-            console.log('obs:',this.obsPositions[this.selectedName]);
-            console.log('sen:',this.senPositions[this.selectedName]);
+            // console.log('obs:',this.obsPositions[this.selectedName]);
+            // console.log('sen:',this.senPositions[this.selectedName]);
 
             if(this.selectedName){
                 hero = JSON.parse(this.heroPositions[this.selectedName].replace(/'/g, '"'));
@@ -95,15 +95,19 @@
                 return 0;
             }
 
-            console.log('obs:',obs);
-            console.log('sen:',sen);
+            // console.log('obs:',obs);
+            // console.log('sen:',sen);
             
 
             const svg = d3.select("#map-svg");
             const movements = [];
             Object.keys(hero).forEach(x => {
                 Object.keys(hero[x]).forEach(y => {
-                    movements.push({x: +x, y: +y, time: hero[x][y]});
+                    var newX = (parseInt(x)+100) * 500 / 256;
+                    var newY = (parseInt(y)-1) * 500 / 256;
+                    console.log('x', newX);
+                    console.log('y', newY);
+                    movements.push({x: +newX , y: +newY , time: hero[x][y]});
                 })
             })
 
@@ -119,33 +123,33 @@
                 .x(function(d) { return d.x; })
                 .y(function(d) { return d.y; });
 
-
+            var timer = -90;
             function animateMovements(i = 0) {
                 if (i >= movements.length) {
                     return 0;
                 }
 
                 if(obs) {
-                    const item = obs.find(obj => obj.time == i);
+                    const item = obs.find(obj => obj.time <= timer);
                     if (item){
-                        console.log('x',item.x)
-                        console.log('y',item.y)
+                        // console.log('x',item.x)
+                        // console.log('y',item.y)
                         svg.append("circle")
                             .attr("r", 10)
                             .attr("fill", "yellow")
-                            .attr("cx", item.x)
-                            .attr("cy", item.y);
+                            .attr("cx", (item.x + 127)/256 * 500)
+                            .attr("cy", (item.y + 127)/256 * 500);
                     }
                 }
 
                 if(sen) {
-                    const item = sen.find(obj => obj.time == i);
+                    const item = sen.find(obj => obj.time <= timer);
                     if (item){
                         svg.append("circle")
                             .attr("r", 10)
                             .attr("fill", "blue")
-                            .attr("cx", item.x)
-                            .attr("cy", item.y);
+                            .attr("cx", (item.x + 127)/256 * 500)
+                            .attr("cy", (item.y + 127)/256 * 500);
                     }
                 }
 
@@ -158,12 +162,13 @@
                     .attr("stroke", "red")
                     .attr("stroke-width", 1)
                     .attr("d", line);
-
                 circle.transition()
-                    .duration(move.time * 10)  // Convert time to milliseconds
+                    .duration(move.time * 1000)  // Convert time to milliseconds
                     .attr("cx", move.x)     // Scale factor for display
                     .attr("cy", move.y)
                     .on("end", () => animateMovements(i + 1));
+
+                timer += move.time;
             }
             animateMovements();
         },

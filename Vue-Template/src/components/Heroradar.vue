@@ -184,9 +184,16 @@
   
   <style scoped>
   .radar-wrapper {
+    margin-top: 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+    margin-left: 300px;
+    margin-right: auto;
+    height: 200vh;
+    width: 100vw;
+    position: relative;
   }
 
   .tooltip {

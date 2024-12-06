@@ -1,125 +1,125 @@
-hero_id,Pick Count,Ban Count,Pick Rate,Ban Rate,Pick Rank,Ban Rank,Win Rate,roles
-48,2189,1461,25.71,17.16,1,30,51.0,"['Carry', 'Nuker', 'Pusher']"
-86,2181,1512,25.62,17.76,2,29,50.0,"['Support', 'Disabler', 'Nuker']"
-11,1865,2849,21.91,33.47,3,4,50.0,"['Carry', 'Nuker']"
-49,1800,1615,21.14,18.97,4,24,48.0,"['Carry', 'Pusher', 'Durable', 'Disabler', 'Initiator', 'Nuker']"
-51,1639,2480,19.25,29.13,5,9,51.0,"['Initiator', 'Disabler', 'Durable', 'Nuker']"
-100,1637,1738,19.23,20.42,6,19,50.0,"['Initiator', 'Disabler', 'Nuker']"
-14,1524,558,17.9,6.55,7,75,49.0,"['Disabler', 'Initiator', 'Durable', 'Nuker']"
-84,1382,384,16.23,4.51,8,91,52.0,"['Support', 'Nuker', 'Disabler', 'Durable', 'Initiator']"
-16,1371,2785,16.1,32.71,9,5,51.0,"['Initiator', 'Disabler', 'Support', 'Nuker', 'Escape']"
-26,1296,288,15.22,3.38,10,101,51.0,"['Support', 'Disabler', 'Nuker', 'Initiator']"
-39,1232,1609,14.47,18.9,11,25,47.0,"['Carry', 'Nuker', 'Escape']"
-74,1225,2512,14.39,29.51,12,8,53.0,"['Carry', 'Nuker', 'Disabler', 'Escape', 'Pusher']"
-123,1215,700,14.27,8.22,13,62,49.0,"['Support', 'Nuker', 'Escape', 'Disabler']"
-9,1210,1552,14.21,18.23,14,26,51.0,"['Carry', 'Support', 'Escape', 'Nuker', 'Disabler']"
-98,1191,1443,13.99,16.95,15,31,48.0,"['Nuker', 'Durable', 'Escape']"
-120,1177,2898,13.83,34.04,16,3,50.0,"['Carry', 'Nuker', 'Disabler', 'Durable', 'Escape', 'Initiator']"
-10,1155,1709,13.57,20.08,17,21,46.0,"['Carry', 'Escape', 'Durable', 'Nuker', 'Disabler']"
-69,1148,2199,13.49,25.83,18,12,51.0,"['Carry', 'Disabler', 'Initiator', 'Durable', 'Nuker']"
-96,1147,1001,13.47,11.76,19,47,50.0,"['Durable', 'Initiator', 'Disabler', 'Nuker', 'Escape']"
-21,1139,2959,13.38,34.76,20,2,50.0,"['Carry', 'Support', 'Disabler', 'Escape', 'Nuker']"
-79,1134,3058,13.32,35.92,21,1,55.0,"['Support', 'Disabler', 'Initiator', 'Nuker']"
-17,1111,1297,13.05,15.24,22,37,53.0,"['Carry', 'Escape', 'Nuker', 'Initiator', 'Disabler']"
-19,1099,632,12.91,7.42,23,68,46.0,"['Carry', 'Nuker', 'Pusher', 'Initiator', 'Durable', 'Disabler']"
-119,1098,1739,12.9,20.43,24,18,50.0,"['Support', 'Nuker', 'Disabler', 'Escape']"
-25,1084,1670,12.73,19.62,25,22,48.0,"['Support', 'Carry', 'Nuker', 'Disabler']"
-13,1071,2340,12.58,27.49,26,10,52.0,"['Initiator', 'Disabler', 'Escape', 'Nuker']"
-5,1041,157,12.23,1.84,27,114,52.0,"['Support', 'Disabler', 'Nuker']"
-129,1034,980,12.15,11.51,28,48,46.0,"['Carry', 'Initiator', 'Disabler', 'Durable']"
-110,1012,2613,11.89,30.69,29,6,49.0,"['Support', 'Nuker', 'Initiator', 'Escape', 'Disabler']"
-64,980,547,11.51,6.43,30,76,48.0,"['Support', 'Nuker', 'Pusher', 'Disabler']"
-106,972,1170,11.42,13.74,31,40,46.0,"['Carry', 'Escape', 'Nuker', 'Disabler', 'Initiator']"
-35,961,1011,11.29,11.88,32,46,50.0,"['Carry', 'Nuker']"
-128,960,611,11.28,7.18,33,71,50.0,"['Support', 'Nuker', 'Disabler', 'Escape']"
-114,942,2109,11.07,24.77,34,14,54.0,"['Carry', 'Escape', 'Disabler', 'Initiator']"
-46,942,1316,11.07,15.46,34,36,50.0,"['Carry', 'Escape']"
-72,918,674,10.78,7.92,36,66,48.0,"['Carry', 'Nuker', 'Disabler']"
-38,912,1837,10.71,21.58,37,16,48.0,"['Initiator', 'Disabler', 'Durable', 'Nuker']"
-136,868,1526,10.2,17.93,38,28,48.0,"['Support', 'Carry', 'Initiator', 'Disabler', 'Escape']"
-73,861,1146,10.11,13.46,39,42,54.0,"['Carry', 'Support', 'Durable', 'Disabler', 'Initiator', 'Nuker']"
-58,860,1815,10.1,21.32,40,17,51.0,"['Support', 'Pusher', 'Durable', 'Disabler']"
-7,860,410,10.1,4.82,40,88,46.0,"['Support', 'Initiator', 'Disabler', 'Nuker']"
-20,849,630,9.97,7.4,42,69,49.0,"['Support', 'Initiator', 'Disabler', 'Nuker', 'Escape']"
-22,841,405,9.88,4.76,43,89,48.0,"['Nuker', 'Carry']"
-138,825,563,9.69,6.61,44,74,53.0,"['Carry', 'Nuker', 'Disabler']"
-107,798,925,9.37,10.87,45,51,55.0,"['Nuker', 'Escape', 'Disabler', 'Initiator', 'Durable']"
-88,796,2292,9.35,26.92,46,11,54.0,"['Disabler', 'Nuker', 'Initiator', 'Escape']"
-99,796,830,9.35,9.75,46,57,51.0,"['Carry', 'Durable', 'Initiator', 'Nuker']"
-70,774,1192,9.09,14.0,48,39,47.0,"['Carry', 'Durable', 'Disabler']"
-137,770,2080,9.04,24.43,49,15,51.0,"['Initiator', 'Durable', 'Disabler']"
-53,770,894,9.04,10.5,49,53,57.0,"['Carry', 'Pusher', 'Escape', 'Nuker']"
-83,763,308,8.96,3.62,51,97,51.0,"['Support', 'Initiator', 'Durable', 'Disabler', 'Escape']"
-109,735,696,8.63,8.18,52,64,55.0,"['Carry', 'Pusher', 'Nuker']"
-65,711,1053,8.35,12.37,53,45,49.0,"['Initiator', 'Disabler', 'Escape']"
-23,700,958,8.22,11.25,54,49,49.0,"['Carry', 'Support', 'Disabler', 'Initiator', 'Durable', 'Nuker']"
-94,691,1388,8.12,16.3,55,32,47.0,"['Carry', 'Disabler', 'Durable']"
-97,668,850,7.85,9.98,56,56,53.0,"['Initiator', 'Disabler', 'Nuker', 'Escape']"
-104,664,341,7.8,4.01,57,95,49.0,"['Carry', 'Disabler', 'Initiator', 'Durable', 'Nuker']"
-2,654,366,7.68,4.3,58,93,44.0,"['Initiator', 'Durable', 'Disabler', 'Carry']"
-18,635,297,7.46,3.49,59,99,49.0,"['Carry', 'Disabler', 'Initiator', 'Durable', 'Nuker']"
-31,624,206,7.33,2.42,60,110,48.0,"['Support', 'Nuker']"
-87,588,95,6.91,1.12,61,123,50.0,"['Support', 'Disabler', 'Nuker', 'Initiator']"
-81,574,285,6.74,3.35,62,102,48.0,"['Carry', 'Disabler', 'Durable', 'Pusher', 'Initiator']"
-57,566,1259,6.65,14.79,63,38,52.0,"['Support', 'Durable', 'Nuker']"
-63,554,1335,6.51,15.68,64,35,50.0,"['Carry', 'Escape']"
-126,552,1382,6.48,16.23,65,33,48.0,"['Carry', 'Escape', 'Nuker', 'Disabler']"
-15,538,753,6.32,8.85,66,60,49.0,"['Carry', 'Durable', 'Nuker', 'Pusher']"
-44,535,372,6.28,4.37,67,92,45.0,"['Carry', 'Escape']"
-71,524,677,6.16,7.95,68,65,51.0,"['Carry', 'Initiator', 'Disabler', 'Durable', 'Escape']"
-45,508,442,5.97,5.19,69,86,50.0,"['Nuker', 'Pusher']"
-52,493,398,5.79,4.68,70,90,53.0,"['Carry', 'Support', 'Nuker', 'Pusher', 'Disabler']"
-108,491,468,5.77,5.5,71,84,46.0,"['Support', 'Nuker', 'Disabler', 'Durable', 'Escape']"
-89,488,2156,5.73,25.33,72,13,57.0,"['Carry', 'Support', 'Pusher', 'Disabler', 'Initiator', 'Escape']"
-27,487,140,5.72,1.64,73,116,49.0,"['Support', 'Pusher', 'Disabler', 'Nuker', 'Initiator']"
-92,469,1721,5.51,20.22,74,20,53.0,"['Support', 'Nuker', 'Durable', 'Disabler', 'Pusher']"
-135,461,416,5.42,4.89,75,87,52.0,"['Carry', 'Durable']"
-121,454,130,5.33,1.53,76,120,48.0,"['Support', 'Nuker', 'Disabler', 'Escape']"
-42,441,251,5.18,2.95,77,106,49.0,"['Carry', 'Support', 'Durable', 'Disabler', 'Initiator']"
-101,427,103,5.02,1.21,78,121,49.0,"['Support', 'Nuker', 'Disabler']"
-34,409,891,4.8,10.47,79,54,49.0,"['Carry', 'Nuker', 'Pusher']"
-61,398,1357,4.68,15.94,80,34,54.0,"['Carry', 'Pusher', 'Escape', 'Nuker']"
-102,390,648,4.58,7.61,81,67,47.0,"['Support', 'Carry', 'Durable']"
-62,385,508,4.52,5.97,82,79,57.0,"['Escape', 'Nuker']"
-85,381,175,4.48,2.06,83,113,45.0,"['Support', 'Durable', 'Disabler', 'Nuker']"
-33,373,887,4.38,10.42,84,55,55.0,"['Disabler', 'Initiator', 'Pusher']"
-54,373,613,4.38,7.2,84,70,45.0,"['Carry', 'Durable', 'Escape', 'Disabler']"
-60,363,503,4.26,5.91,86,80,53.0,"['Carry', 'Initiator', 'Durable', 'Disabler', 'Nuker']"
-28,351,267,4.12,3.14,87,105,47.0,"['Carry', 'Durable', 'Initiator', 'Disabler', 'Escape']"
-37,350,913,4.11,10.72,88,52,47.0,"['Support', 'Initiator', 'Disabler']"
-40,339,780,3.98,9.16,89,58,50.0,"['Support', 'Nuker', 'Initiator', 'Pusher', 'Disabler']"
-8,333,298,3.91,3.5,90,98,45.0,"['Carry', 'Pusher', 'Escape']"
-95,331,700,3.89,8.22,91,62,48.0,"['Carry', 'Pusher', 'Disabler', 'Durable']"
-6,330,203,3.88,2.38,92,111,48.0,"['Carry', 'Disabler', 'Pusher']"
-112,323,2534,3.79,29.77,93,7,55.0,"['Support', 'Disabler', 'Nuker']"
-90,323,317,3.79,3.72,93,96,52.0,"['Support', 'Nuker', 'Disabler']"
-59,321,592,3.77,6.95,95,73,47.0,"['Carry', 'Durable', 'Initiator']"
-76,312,778,3.66,9.14,96,59,48.0,"['Carry', 'Nuker', 'Disabler']"
-43,309,276,3.63,3.24,97,103,52.0,"['Carry', 'Pusher', 'Nuker', 'Disabler']"
-47,304,1139,3.57,13.38,98,43,53.0,"['Carry', 'Durable', 'Initiator', 'Disabler']"
-36,298,133,3.5,1.56,99,119,51.0,"['Carry', 'Nuker', 'Durable', 'Disabler']"
-91,288,606,3.38,7.12,100,72,46.0,"['Support', 'Escape', 'Nuker']"
-80,286,1542,3.36,18.11,101,27,55.0,"['Carry', 'Pusher', 'Durable']"
-55,284,1154,3.34,13.56,102,41,52.0,"['Initiator', 'Escape', 'Disabler']"
-93,283,510,3.32,5.99,103,78,54.0,"['Carry', 'Escape', 'Disabler', 'Nuker']"
-50,282,1670,3.31,19.62,104,22,44.0,"['Support', 'Nuker', 'Disabler']"
-105,280,535,3.29,6.28,105,77,45.0,"['Nuker', 'Disabler']"
-77,261,726,3.07,8.53,106,61,48.0,"['Carry', 'Pusher', 'Durable', 'Escape']"
-30,249,139,2.92,1.63,107,117,46.0,"['Support', 'Nuker', 'Disabler']"
-111,244,194,2.87,2.28,108,112,46.0,"['Support', 'Nuker', 'Disabler', 'Escape']"
-103,239,152,2.81,1.79,109,115,52.0,"['Initiator', 'Disabler', 'Nuker', 'Durable']"
-1,220,475,2.58,5.58,110,83,44.0,"['Carry', 'Escape', 'Nuker']"
-56,220,349,2.58,4.1,110,94,55.0,"['Carry', 'Escape', 'Pusher']"
-75,218,136,2.56,1.6,112,118,48.0,"['Carry', 'Support', 'Disabler', 'Initiator', 'Nuker']"
-3,204,477,2.4,5.6,113,82,55.0,"['Support', 'Disabler', 'Nuker', 'Durable']"
-66,200,1068,2.35,12.55,114,44,64.0,"['Support', 'Pusher']"
-68,197,96,2.31,1.13,115,122,51.0,"['Support', 'Disabler', 'Nuker']"
-4,176,467,2.07,5.49,116,85,56.0,"['Carry', 'Disabler', 'Nuker', 'Initiator']"
-41,176,273,2.07,3.21,116,104,41.0,"['Carry', 'Initiator', 'Disabler', 'Escape', 'Durable']"
-67,175,219,2.06,2.57,118,108,49.0,"['Carry', 'Durable', 'Escape']"
-78,161,955,1.89,11.22,119,50,44.0,"['Carry', 'Initiator', 'Durable', 'Disabler', 'Nuker']"
-29,161,74,1.89,0.87,119,124,56.0,"['Initiator', 'Durable', 'Disabler', 'Nuker', 'Carry']"
-32,136,500,1.6,5.87,121,81,48.0,"['Carry', 'Escape', 'Disabler']"
-82,114,237,1.34,2.78,122,107,46.0,"['Carry', 'Escape', 'Nuker', 'Disabler', 'Initiator', 'Pusher']"
-113,78,208,0.92,2.44,123,109,42.0,"['Carry', 'Escape', 'Nuker']"
-12,45,293,0.53,3.44,124,100,49.0,"['Carry', 'Escape', 'Pusher', 'Nuker']"
+hero_id,Pick Count,Ban Count,Pick Rate,Ban Rate,Pick Rank,Ban Rank,Win Rate,roles,attack_type
+48,2189,1461,25.71,17.16,1,30,51.0,"['Carry', 'Nuker', 'Pusher']",Ranged
+86,2181,1512,25.62,17.76,2,29,50.0,"['Support', 'Disabler', 'Nuker']",Ranged
+11,1865,2849,21.91,33.47,3,4,50.0,"['Carry', 'Nuker']",Ranged
+49,1800,1615,21.14,18.97,4,24,48.0,"['Carry', 'Pusher', 'Durable', 'Disabler', 'Initiator', 'Nuker']",Melee
+51,1639,2480,19.25,29.13,5,9,51.0,"['Initiator', 'Disabler', 'Durable', 'Nuker']",Melee
+100,1637,1738,19.23,20.42,6,19,50.0,"['Initiator', 'Disabler', 'Nuker']",Melee
+14,1524,558,17.9,6.55,7,75,49.0,"['Disabler', 'Initiator', 'Durable', 'Nuker']",Melee
+84,1382,384,16.23,4.51,8,91,52.0,"['Support', 'Nuker', 'Disabler', 'Durable', 'Initiator']",Melee
+16,1371,2785,16.1,32.71,9,5,51.0,"['Initiator', 'Disabler', 'Support', 'Nuker', 'Escape']",Melee
+26,1296,288,15.22,3.38,10,101,51.0,"['Support', 'Disabler', 'Nuker', 'Initiator']",Ranged
+39,1232,1609,14.47,18.9,11,25,47.0,"['Carry', 'Nuker', 'Escape']",Ranged
+74,1225,2512,14.39,29.51,12,8,53.0,"['Carry', 'Nuker', 'Disabler', 'Escape', 'Pusher']",Ranged
+123,1215,700,14.27,8.22,13,62,49.0,"['Support', 'Nuker', 'Escape', 'Disabler']",Ranged
+9,1210,1552,14.21,18.23,14,26,51.0,"['Carry', 'Support', 'Escape', 'Nuker', 'Disabler']",Ranged
+98,1191,1443,13.99,16.95,15,31,48.0,"['Nuker', 'Durable', 'Escape']",Melee
+120,1177,2898,13.83,34.04,16,3,50.0,"['Carry', 'Nuker', 'Disabler', 'Durable', 'Escape', 'Initiator']",Melee
+10,1155,1709,13.57,20.08,17,21,46.0,"['Carry', 'Escape', 'Durable', 'Nuker', 'Disabler']",Ranged
+69,1148,2199,13.49,25.83,18,12,51.0,"['Carry', 'Disabler', 'Initiator', 'Durable', 'Nuker']",Melee
+96,1147,1001,13.47,11.76,19,47,50.0,"['Durable', 'Initiator', 'Disabler', 'Nuker', 'Escape']",Melee
+21,1139,2959,13.38,34.76,20,2,50.0,"['Carry', 'Support', 'Disabler', 'Escape', 'Nuker']",Ranged
+79,1134,3058,13.32,35.92,21,1,55.0,"['Support', 'Disabler', 'Initiator', 'Nuker']",Ranged
+17,1111,1297,13.05,15.24,22,37,53.0,"['Carry', 'Escape', 'Nuker', 'Initiator', 'Disabler']",Ranged
+19,1099,632,12.91,7.42,23,68,46.0,"['Carry', 'Nuker', 'Pusher', 'Initiator', 'Durable', 'Disabler']",Melee
+119,1098,1739,12.9,20.43,24,18,50.0,"['Support', 'Nuker', 'Disabler', 'Escape']",Ranged
+25,1084,1670,12.73,19.62,25,22,48.0,"['Support', 'Carry', 'Nuker', 'Disabler']",Ranged
+13,1071,2340,12.58,27.49,26,10,52.0,"['Initiator', 'Disabler', 'Escape', 'Nuker']",Ranged
+5,1041,157,12.23,1.84,27,114,52.0,"['Support', 'Disabler', 'Nuker']",Ranged
+129,1034,980,12.15,11.51,28,48,46.0,"['Carry', 'Initiator', 'Disabler', 'Durable']",Melee
+110,1012,2613,11.89,30.69,29,6,49.0,"['Support', 'Nuker', 'Initiator', 'Escape', 'Disabler']",Ranged
+64,980,547,11.51,6.43,30,76,48.0,"['Support', 'Nuker', 'Pusher', 'Disabler']",Ranged
+106,972,1170,11.42,13.74,31,40,46.0,"['Carry', 'Escape', 'Nuker', 'Disabler', 'Initiator']",Melee
+35,961,1011,11.29,11.88,32,46,50.0,"['Carry', 'Nuker']",Ranged
+128,960,611,11.28,7.18,33,71,50.0,"['Support', 'Nuker', 'Disabler', 'Escape']",Ranged
+114,942,2109,11.07,24.77,34,14,54.0,"['Carry', 'Escape', 'Disabler', 'Initiator']",Melee
+46,942,1316,11.07,15.46,34,36,50.0,"['Carry', 'Escape']",Ranged
+72,918,674,10.78,7.92,36,66,48.0,"['Carry', 'Nuker', 'Disabler']",Ranged
+38,912,1837,10.71,21.58,37,16,48.0,"['Initiator', 'Disabler', 'Durable', 'Nuker']",Melee
+136,868,1526,10.2,17.93,38,28,48.0,"['Support', 'Carry', 'Initiator', 'Disabler', 'Escape']",Melee
+73,861,1146,10.11,13.46,39,42,54.0,"['Carry', 'Support', 'Durable', 'Disabler', 'Initiator', 'Nuker']",Melee
+58,860,1815,10.1,21.32,40,17,51.0,"['Support', 'Pusher', 'Durable', 'Disabler']",Ranged
+7,860,410,10.1,4.82,40,88,46.0,"['Support', 'Initiator', 'Disabler', 'Nuker']",Melee
+20,849,630,9.97,7.4,42,69,49.0,"['Support', 'Initiator', 'Disabler', 'Nuker', 'Escape']",Ranged
+22,841,405,9.88,4.76,43,89,48.0,"['Nuker', 'Carry']",Ranged
+138,825,563,9.69,6.61,44,74,53.0,"['Carry', 'Nuker', 'Disabler']",Ranged
+107,798,925,9.37,10.87,45,51,55.0,"['Nuker', 'Escape', 'Disabler', 'Initiator', 'Durable']",Melee
+88,796,2292,9.35,26.92,46,11,54.0,"['Disabler', 'Nuker', 'Initiator', 'Escape']",Melee
+99,796,830,9.35,9.75,46,57,51.0,"['Carry', 'Durable', 'Initiator', 'Nuker']",Melee
+70,774,1192,9.09,14.0,48,39,47.0,"['Carry', 'Durable', 'Disabler']",Melee
+137,770,2080,9.04,24.43,49,15,51.0,"['Initiator', 'Durable', 'Disabler']",Melee
+53,770,894,9.04,10.5,49,53,57.0,"['Carry', 'Pusher', 'Escape', 'Nuker']",Ranged
+83,763,308,8.96,3.62,51,97,51.0,"['Support', 'Initiator', 'Durable', 'Disabler', 'Escape']",Melee
+109,735,696,8.63,8.18,52,64,55.0,"['Carry', 'Pusher', 'Nuker']",Melee
+65,711,1053,8.35,12.37,53,45,49.0,"['Initiator', 'Disabler', 'Escape']",Ranged
+23,700,958,8.22,11.25,54,49,49.0,"['Carry', 'Support', 'Disabler', 'Initiator', 'Durable', 'Nuker']",Melee
+94,691,1388,8.12,16.3,55,32,47.0,"['Carry', 'Disabler', 'Durable']",Ranged
+97,668,850,7.85,9.98,56,56,53.0,"['Initiator', 'Disabler', 'Nuker', 'Escape']",Melee
+104,664,341,7.8,4.01,57,95,49.0,"['Carry', 'Disabler', 'Initiator', 'Durable', 'Nuker']",Melee
+2,654,366,7.68,4.3,58,93,44.0,"['Initiator', 'Durable', 'Disabler', 'Carry']",Melee
+18,635,297,7.46,3.49,59,99,49.0,"['Carry', 'Disabler', 'Initiator', 'Durable', 'Nuker']",Melee
+31,624,206,7.33,2.42,60,110,48.0,"['Support', 'Nuker']",Ranged
+87,588,95,6.91,1.12,61,123,50.0,"['Support', 'Disabler', 'Nuker', 'Initiator']",Ranged
+81,574,285,6.74,3.35,62,102,48.0,"['Carry', 'Disabler', 'Durable', 'Pusher', 'Initiator']",Melee
+57,566,1259,6.65,14.79,63,38,52.0,"['Support', 'Durable', 'Nuker']",Melee
+63,554,1335,6.51,15.68,64,35,50.0,"['Carry', 'Escape']",Ranged
+126,552,1382,6.48,16.23,65,33,48.0,"['Carry', 'Escape', 'Nuker', 'Disabler']",Melee
+15,538,753,6.32,8.85,66,60,49.0,"['Carry', 'Durable', 'Nuker', 'Pusher']",Ranged
+44,535,372,6.28,4.37,67,92,45.0,"['Carry', 'Escape']",Melee
+71,524,677,6.16,7.95,68,65,51.0,"['Carry', 'Initiator', 'Disabler', 'Durable', 'Escape']",Melee
+45,508,442,5.97,5.19,69,86,50.0,"['Nuker', 'Pusher']",Ranged
+52,493,398,5.79,4.68,70,90,53.0,"['Carry', 'Support', 'Nuker', 'Pusher', 'Disabler']",Ranged
+108,491,468,5.77,5.5,71,84,46.0,"['Support', 'Nuker', 'Disabler', 'Durable', 'Escape']",Melee
+89,488,2156,5.73,25.33,72,13,57.0,"['Carry', 'Support', 'Pusher', 'Disabler', 'Initiator', 'Escape']",Melee
+27,487,140,5.72,1.64,73,116,49.0,"['Support', 'Pusher', 'Disabler', 'Nuker', 'Initiator']",Ranged
+92,469,1721,5.51,20.22,74,20,53.0,"['Support', 'Nuker', 'Durable', 'Disabler', 'Pusher']",Ranged
+135,461,416,5.42,4.89,75,87,52.0,"['Carry', 'Durable']",Melee
+121,454,130,5.33,1.53,76,120,48.0,"['Support', 'Nuker', 'Disabler', 'Escape']",Ranged
+42,441,251,5.18,2.95,77,106,49.0,"['Carry', 'Support', 'Durable', 'Disabler', 'Initiator']",Melee
+101,427,103,5.02,1.21,78,121,49.0,"['Support', 'Nuker', 'Disabler']",Ranged
+34,409,891,4.8,10.47,79,54,49.0,"['Carry', 'Nuker', 'Pusher']",Ranged
+61,398,1357,4.68,15.94,80,34,54.0,"['Carry', 'Pusher', 'Escape', 'Nuker']",Melee
+102,390,648,4.58,7.61,81,67,47.0,"['Support', 'Carry', 'Durable']",Melee
+62,385,508,4.52,5.97,82,79,57.0,"['Escape', 'Nuker']",Melee
+85,381,175,4.48,2.06,83,113,45.0,"['Support', 'Durable', 'Disabler', 'Nuker']",Melee
+33,373,887,4.38,10.42,84,55,55.0,"['Disabler', 'Initiator', 'Pusher']",Ranged
+54,373,613,4.38,7.2,84,70,45.0,"['Carry', 'Durable', 'Escape', 'Disabler']",Melee
+60,363,503,4.26,5.91,86,80,53.0,"['Carry', 'Initiator', 'Durable', 'Disabler', 'Nuker']",Melee
+28,351,267,4.12,3.14,87,105,47.0,"['Carry', 'Durable', 'Initiator', 'Disabler', 'Escape']",Melee
+37,350,913,4.11,10.72,88,52,47.0,"['Support', 'Initiator', 'Disabler']",Ranged
+40,339,780,3.98,9.16,89,58,50.0,"['Support', 'Nuker', 'Initiator', 'Pusher', 'Disabler']",Ranged
+8,333,298,3.91,3.5,90,98,45.0,"['Carry', 'Pusher', 'Escape']",Melee
+95,331,700,3.89,8.22,91,62,48.0,"['Carry', 'Pusher', 'Disabler', 'Durable']",Ranged
+6,330,203,3.88,2.38,92,111,48.0,"['Carry', 'Disabler', 'Pusher']",Ranged
+112,323,2534,3.79,29.77,93,7,55.0,"['Support', 'Disabler', 'Nuker']",Ranged
+90,323,317,3.79,3.72,93,96,52.0,"['Support', 'Nuker', 'Disabler']",Ranged
+59,321,592,3.77,6.95,95,73,47.0,"['Carry', 'Durable', 'Initiator']",Ranged
+76,312,778,3.66,9.14,96,59,48.0,"['Carry', 'Nuker', 'Disabler']",Ranged
+43,309,276,3.63,3.24,97,103,52.0,"['Carry', 'Pusher', 'Nuker', 'Disabler']",Ranged
+47,304,1139,3.57,13.38,98,43,53.0,"['Carry', 'Durable', 'Initiator', 'Disabler']",Ranged
+36,298,133,3.5,1.56,99,119,51.0,"['Carry', 'Nuker', 'Durable', 'Disabler']",Ranged
+91,288,606,3.38,7.12,100,72,46.0,"['Support', 'Escape', 'Nuker']",Ranged
+80,286,1542,3.36,18.11,101,27,55.0,"['Carry', 'Pusher', 'Durable']",Ranged
+55,284,1154,3.34,13.56,102,41,52.0,"['Initiator', 'Escape', 'Disabler']",Melee
+93,283,510,3.32,5.99,103,78,54.0,"['Carry', 'Escape', 'Disabler', 'Nuker']",Melee
+50,282,1670,3.31,19.62,104,22,44.0,"['Support', 'Nuker', 'Disabler']",Ranged
+105,280,535,3.29,6.28,105,77,45.0,"['Nuker', 'Disabler']",Ranged
+77,261,726,3.07,8.53,106,61,48.0,"['Carry', 'Pusher', 'Durable', 'Escape']",Melee
+30,249,139,2.92,1.63,107,117,46.0,"['Support', 'Nuker', 'Disabler']",Ranged
+111,244,194,2.87,2.28,108,112,46.0,"['Support', 'Nuker', 'Disabler', 'Escape']",Ranged
+103,239,152,2.81,1.79,109,115,52.0,"['Initiator', 'Disabler', 'Nuker', 'Durable']",Melee
+1,220,475,2.58,5.58,110,83,44.0,"['Carry', 'Escape', 'Nuker']",Melee
+56,220,349,2.58,4.1,110,94,55.0,"['Carry', 'Escape', 'Pusher']",Ranged
+75,218,136,2.56,1.6,112,118,48.0,"['Carry', 'Support', 'Disabler', 'Initiator', 'Nuker']",Ranged
+3,204,477,2.4,5.6,113,82,55.0,"['Support', 'Disabler', 'Nuker', 'Durable']",Ranged
+66,200,1068,2.35,12.55,114,44,64.0,"['Support', 'Pusher']",Ranged
+68,197,96,2.31,1.13,115,122,51.0,"['Support', 'Disabler', 'Nuker']",Ranged
+4,176,467,2.07,5.49,116,85,56.0,"['Carry', 'Disabler', 'Nuker', 'Initiator']",Melee
+41,176,273,2.07,3.21,116,104,41.0,"['Carry', 'Initiator', 'Disabler', 'Escape', 'Durable']",Melee
+67,175,219,2.06,2.57,118,108,49.0,"['Carry', 'Durable', 'Escape']",Melee
+78,161,955,1.89,11.22,119,50,44.0,"['Carry', 'Initiator', 'Durable', 'Disabler', 'Nuker']",Melee
+29,161,74,1.89,0.87,119,124,56.0,"['Initiator', 'Durable', 'Disabler', 'Nuker', 'Carry']",Melee
+32,136,500,1.6,5.87,121,81,48.0,"['Carry', 'Escape', 'Disabler']",Melee
+82,114,237,1.34,2.78,122,107,46.0,"['Carry', 'Escape', 'Nuker', 'Disabler', 'Initiator', 'Pusher']",Melee
+113,78,208,0.92,2.44,123,109,42.0,"['Carry', 'Escape', 'Nuker']",Ranged
+12,45,293,0.53,3.44,124,100,49.0,"['Carry', 'Escape', 'Pusher', 'Nuker']",Melee

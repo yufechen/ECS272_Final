@@ -249,8 +249,8 @@ export default {
       miniImages.enter().append("image")
         .attr("x", (d) => xScale(d.prevMetric || this.getMetricValue(d))) // Use previous value for smooth transition
         .attr("y", (d) => yScale(d.winRate))
-        .attr("width", 20)  // Set image width (adjust as needed)
-        .attr("height", 20) // Set image height (adjust as needed)
+        .attr("width", 30)  // Set image width (adjust as needed)
+        .attr("height", 30) // Set image height (adjust as needed)
         .attr("href", (d) => '../../data/Images/Miniheroes/' + d.npcName.replace('npc_dota_hero_', '') + '.png')
         .style("opacity", 0.7)
         .on("mouseover", this.showTooltip)
@@ -304,7 +304,7 @@ export default {
     getMetricValue(d) {
       return this.currentMetric === 'Pick Rate' ? d.pickRate : d.banRate;
     },
-    
+
     moveTooltip(event) {
       let tooltipLeft = event.pageX + 10;
       let tooltipTop = event.pageY + 10;

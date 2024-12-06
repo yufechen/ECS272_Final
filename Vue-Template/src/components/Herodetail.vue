@@ -35,6 +35,7 @@
     mid: string;
     late: string;
   }
+
   
   export default {
     name: "HeroDetail",
@@ -117,7 +118,7 @@
           };
         }
         
-        console.log(this.heroDetailData);
+        // console.log(this.heroDetailData);
         // Manege the hero detail info
         const variants = this.heroDetailData.variants ? JSON.parse(this.heroDetailData.variants.replace(/([{,]\s*)(\d+\.\d+)(\s*:)/g, '$1"$2"$3')) : {};
         const ability_rate = this.heroDetailData.ability_rate ? JSON.parse(this.heroDetailData.ability_rate) : {};
@@ -127,6 +128,8 @@
         const late = this.heroDetailData.late ? JSON.parse(this.heroDetailData.late) : {};
   
         let heroKey = this.heroKeys[this.currentHero.chosenState];
+
+        // console.log(itemData);
 
         d3.json('../../data/Constants/hero_abilities.json').then(data => {
           let variantX = 670;
@@ -278,89 +281,111 @@
   
           startingY += 51.2;
         }
-  
-        // Early
-        let earlyX = 180;
-        let earlyY = 210;
-        for (const item of early) {
-          if (item.rate < 10) {
-            break;
-          }
-  
-          svg.append("image")
-          .attr("x", earlyX)
-          .attr("y", earlyY)
-          .attr("width", 70.4)
-          .attr("height", 51.2)
-          .attr("href", '../../data/Images/Items/' + item.item + '.png')
-          .append("title")
-          .text(`${item.item}`);
-  
-          svg.append("text")
-          .attr("x", earlyX + 80.4)
-          .attr("y", earlyY + 30)
-          .attr("height", 51.2)
-          .text(`${item.rate}%`)
-          .style("font-size", "20px");
-  
-          earlyY += 51.2;
-        }
-  
-        // Mid
-        let midX = 350;
-        let midY = 210;
-        for (const item of mid) {
-          if (item.rate < 10) {
-            break;
-          }
-  
-          svg.append("image")
-          .attr("x", midX)
-          .attr("y", midY)
-          .attr("width", 70.4)
-          .attr("height", 51.2)
-          .attr("href", '../../data/Images/Items/' + item.item + '.png')
-          .append("title")
-          .text(`${item.item}`);
-  
-          svg.append("text")
-          .attr("x", midX + 80.4)
-          .attr("y", midY + 30)
-          .attr("height", 51.2)
-          .text(`${item.rate}%`)
-          .style("font-size", "20px");
-  
-          midY += 51.2;
-        }
-  
-        // Late
-        let lateX = 520;
-        let lateY = 210;
-        for (const item of late) {
-          if (item.rate < 10) {
-            break;
-          }
-  
-          svg.append("image")
-          .attr("x", lateX)
-          .attr("y", lateY)
-          .attr("width", 70.4)
-          .attr("height", 51.2)
-          .attr("href", '../../data/Images/Items/' + item.item + '.png')
-          .append("title")
-          .text(`${item.item}`);
-  
-          
-  
-          svg.append("text")
-          .attr("x", lateX + 80.4)
-          .attr("y", lateY + 30)
-          .attr("height", 51.2)
-          .text(`${item.rate}%`)
-          .style("font-size", "20px");
-  
-          lateY += 51.2;
-        }
+        
+        d3.json('../../data/Constants/items.json').then((data) => {
+            // Early
+            let earlyX = 180;
+            let earlyY = 210;
+            for (const item of early) {
+                if (item.rate < 10) {
+                    break;
+                }
+
+                if(data[item.item] && data[item.item].qual === 'consumable'){
+                    continue
+                }
+
+                svg.append("image")
+                .attr("x", earlyX)
+                .attr("y", earlyY)
+                .attr("width", 70.4)
+                .attr("height", 51.2)
+                .attr("href", '../../data/Images/Items/' + item.item + '.png')
+                .append("title")
+                .text(`${item.item}`);
+        
+                svg.append("text")
+                .attr("x", earlyX + 80.4)
+                .attr("y", earlyY + 30)
+                .attr("height", 51.2)
+                .text(`${item.rate}%`)
+                .style("font-size", "20px");
+        
+                earlyY += 51.2;
+            }
+    
+            // Mid
+            let midX = 350;
+            let midY = 210;
+            for (const item of mid) {
+                if (item.rate < 10) {
+                    break;
+                }
+                
+                if(data[item.item] && data[item.item].qual === 'consumable'){
+                    continue
+                }
+
+                if(data[item.item] && data[item.item].cost <= 2000){
+                    continue
+                }
+        
+                svg.append("image")
+                .attr("x", midX)
+                .attr("y", midY)
+                .attr("width", 70.4)
+                .attr("height", 51.2)
+                .attr("href", '../../data/Images/Items/' + item.item + '.png')
+                .append("title")
+                .text(`${item.item}`);
+        
+                svg.append("text")
+                .attr("x", midX + 80.4)
+                .attr("y", midY + 30)
+                .attr("height", 51.2)
+                .text(`${item.rate}%`)
+                .style("font-size", "20px");
+        
+                midY += 51.2;
+            }
+    
+            // Late
+            let lateX = 520;
+            let lateY = 210;
+            for (const item of late) {
+                if (item.rate < 10) {
+                    break;
+                }
+
+                if(data[item.item] && data[item.item].qual === 'consumable'){
+                    continue
+                }
+
+                if(data[item.item] && data[item.item].cost <= 2000){
+                    continue
+                }
+        
+                svg.append("image")
+                .attr("x", lateX)
+                .attr("y", lateY)
+                .attr("width", 70.4)
+                .attr("height", 51.2)
+                .attr("href", '../../data/Images/Items/' + item.item + '.png')
+                .append("title")
+                .text(`${item.item}`);
+        
+                
+        
+                svg.append("text")
+                .attr("x", lateX + 80.4)
+                .attr("y", lateY + 30)
+                .attr("height", 51.2)
+                .text(`${item.rate}%`)
+                .style("font-size", "20px");
+        
+                lateY += 51.2;
+            }
+        });
   
         this.herodetailVisible = true;
       },

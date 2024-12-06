@@ -1,23 +1,39 @@
 <template>
-    <div class="scatterplot-wrapper">
-    <!-- Role Filter with Checkboxes -->
-    <div class="role-filter">
-      <label class="role-label">Select Roles:</label>
-      <div class="checkbox-container">
-        <div v-for="role in uniqueRoles" :key="role" class="checkbox-item">
-          <input
-            type="checkbox"
-            :value="role"
-            v-model="selectedRoles"
-            @change="filterByRoles"
-          />
-          <label>{{ role }}</label>
+  <div class="scatterplot-wrapper">
+    <div class="filters-container">
+      <div class="role-filter">
+        <label class="role-label">Select Roles:</label>
+        <div class="checkbox-container">
+          <div v-for="role in uniqueRoles" :key="role" class="checkbox-item">
+            <input
+              type="checkbox"
+              :value="role"
+              v-model="selectedRoles"
+              @change="filterHeroes"
+            />
+            <label>{{ role }}</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="attack-type-filter">
+        <label class="role-label">Select Attack Type:</label>
+        <div class="checkbox-container">
+          <div v-for="attackType in uniqueAttackTypes" :key="attackType" class="checkbox-item">
+            <input
+              type="checkbox"
+              :value="attackType"
+              v-model="selectedAttackTypes"
+              @change="filterHeroes"
+            />
+            <label>{{ attackType }}</label>
+          </div>
         </div>
       </div>
     </div>
-    
+
     <!-- Button to toggle between Pick Rate and Ban Rate -->
-    <button @click="toggleMetric" class="toggle-button">
+    <button @click="toggleMetric" class="toggle-button" :class="{'clicked': isClicked}">
       Toggle to {{ currentMetric === 'Pick Rate' ? 'Ban Rate' : 'Pick Rate' }}
     </button>
 
@@ -34,6 +50,7 @@
   </div>
 </template>
 
+
 <script lang="ts">
 import { useCurrentHero } from '../stores/store';
 import * as d3 from "d3";
@@ -43,6 +60,9 @@ interface HeroData {
   pickRate: number;
   banRate: number;
   winRate: number;
+  pickRank: number;
+  banRank: number;
+  attackType: string;
 }
 
 interface HeroDetail {
@@ -71,6 +91,9 @@ export default {
       roles: [] as string[], // Store roles for filtering
       selectedRoles: [] as string[], // Array of selected roles
       uniqueRoles: [] as string[], // All unique roles
+      selectedAttackTypes: [] as string[],  // Store selected attack types
+      uniqueAttackTypes: ['Melee', 'Ranged'] as string[],  // Available attack types
+      isClicked: false,
 
       // Hero detail vars
       heroesDetail: [] as HeroDetail[],   // Array to store HeroDetail
@@ -104,6 +127,9 @@ export default {
             pickRate: d['Pick Rate'],
             banRate: d['Ban Rate'],
             winRate: d['Win Rate'],
+            banRank: d['Ban Rank'],
+            pickRank: d['Pick Rank'],
+            attackType: d['attack_type'], // Added attackType field
 
             // Normalize and clean up roles in the hero data
             roles: d.roles
@@ -117,18 +143,27 @@ export default {
       });
     });
   },
-    // Filter heroes by selected roles
-    filterByRoles() {
-      if (this.selectedRoles.length === 0) {
-        // Show all heroes if no roles are selected
-        this.sortedHeroes = [...this.heroes];
-      } else {
-        // Filter heroes to include only those that have all selected roles
-        this.sortedHeroes = this.heroes.filter((hero) =>
+    // New method to filter by both roles and attack types
+    filterHeroes() {
+      let filteredHeroes = this.heroes;
+
+      // Filter by selected roles
+      if (this.selectedRoles.length > 0) {
+        filteredHeroes = filteredHeroes.filter((hero) =>
           this.selectedRoles.every((role) => hero.roles.includes(role))
         );
       }
-      this.initChart(); // Re-render the chart after filtering
+
+      // Filter by selected attack types
+      if (this.selectedAttackTypes.length > 0) {
+        filteredHeroes = filteredHeroes.filter((hero) =>
+          this.selectedAttackTypes.every((attackType) => hero.attackType.includes(attackType))
+        );
+      }
+
+      // Update sortedHeroes with the filtered results
+      this.sortedHeroes = filteredHeroes;
+      this.initChart();
     },
     initChart() {
       // Clear previous chart
@@ -281,6 +316,7 @@ export default {
       this.tooltipVisible = false;
     },
     toggleMetric() {
+      this.isClicked = !this.isClicked; // Toggle the clicked state
       this.currentMetric = this.currentMetric === 'Pick Rate' ? 'Ban Rate' : 'Pick Rate';
       this.initChart();
     },
@@ -320,11 +356,16 @@ html, body, #app {
   position: relative;
 }
 
-.role-filter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+.filters-container {
+  display: flex; /* Makes children align horizontally */
+  gap: 20px; /* Adds space between the two divs */
+  align-items: flex-start; /* Aligns items to the top */
+}
+
+.role-filter,
+.attack-type-filter {
+  flex: 1; /* Makes both divs take equal space, optional */
+  max-width: 45%; /* Adjust width if needed */
 }
 
 .role-label {
@@ -351,12 +392,22 @@ html, body, #app {
 }
 
 .toggle-button {
-  margin-bottom: 10px;
-  padding: 8px 16px;
-  font-size: 14px;
+  background-color: #ff0000; /* Default background color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
+.toggle-button.clicked {
+  background-color: #28a745; /* New color when clicked */
+}
+
+.toggle-button:active {
+  background-color: #e7eaec; /* Darker shade when pressed */
+}
 .chart-container {
   display: flex;
   justify-content: center;

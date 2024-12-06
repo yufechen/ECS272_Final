@@ -34,6 +34,7 @@ export default {
 
 <style scoped>
 #main-container{
+  margin-top: 2vh;
   height: 100%;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="scatterplot-wrapper">
       <!-- Hero Detail Element -->
-      <div v-if="herodetailVisible" class="chart-container">
+      <div v-if="herodetailVisible" class="scatterplot-wrapper">
         <svg id="herodetail-svg"></svg>
       </div>
   
@@ -154,8 +154,8 @@
         });
 
         const svg = d3.select("#herodetail-svg")
-                      .attr("width", 1000)
-                      .attr("height", 20000);
+                      .attr("width", 1200)
+                      .attr("height", 2000);
   
         // Display example text based on the parsed data
         svg.append("text")
@@ -469,8 +469,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: left;
+    margin-left: 25px;
+    height: 200vh;
     width: 100vw;
     position: relative;
   }

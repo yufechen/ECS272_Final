@@ -19,7 +19,7 @@ export default {
 
     const updateScale = () => {
         const width = window.innerWidth;
-        scale.value = width / 1650; // Adjust 1920 to your base width for scaling
+        scale.value = width / 1920; // Adjust 1920 to your base width for scaling
     };
 
     onMounted(() => {
